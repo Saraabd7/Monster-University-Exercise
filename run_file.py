@@ -21,12 +21,25 @@ print('Adding a student :: ')
 students_list = []
 student_id = 0
 while True:
+    user_input = input('please choose one of the following options \n'
+                       '1 - Create a student \n'
+                       '2 - List all workshops \n')
+    if user_input == '1' or 'create a student' in user_input:
+        print('OMG LETS MAKE A STUDENT ACCOUNT')
+    elif user_input == '2':
+        print('OMG LETS PRINT ALL WORKSHOPS')
+    elif user_input == 'quit':
+        break
+
+
+
     student_id += 1
     first_name = input('Enter first name:\n')
     last_name = input('Enter last name:\n')
     skills = input('Enter skills:\n')
     student = Student(first_name, last_name, student_id)
     students_list.append(student)
+    print(student.first_name)
     print(f'Student Name is {first_name} {last_name} {student_id}')
     print(students_list)
     print('Number of students in the list: ' + str(len(students_list)))
@@ -65,9 +78,9 @@ print('Adding a workshop::')
 workshop_list = []
 while True:
     subject_name = input('Enter subject name:\n')
-    teacher_name = input('Enter teacher name\n')
-    attendees = input('Enter number of attendees\n')
-    subject = workshop_monster(subject_name, teacher_name, attendees)
+    teacher_name = input('Enter teacher name:\n')
+    attendees = input('Enter number of attendees:\n')
+    subject = workshop_monster(subject_name, teacher_name)
     workshop_list.append(subject)
     print(f'Workshop added was: {subject} and teacher\'s name is {teacher_name}. Attendees are {attendees}')
     print(workshop_list)
